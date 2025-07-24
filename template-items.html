@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <title>[[*pagetitle]] - [[++site_name]]</title>
+    <base href="[[!++site_url]]">
+    <meta charset="[[++modx_charset]]">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="[[~[[++site_start]]]]">[[++site_name]]</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                [[!Wayfinder?
+                    &startId=`0`
+                    &level=`2`
+                    &outerTpl=`wf_outerTpl`
+                    &rowTpl=`wf_rowTpl`
+                    &parentRowTpl=`wf_parentRowTpl`
+                    &parentRowHereTpl=`wf_parentRowHereTpl`
+                    &hereTpl=`wf_hereTpl`
+                    &firstClass=`first`
+                    &lastClass=`last`
+                    &hereClass=`active`
+                    &rowClass=`nav-item`
+                    &outerClass=`navbar-nav me-auto mb-2 mb-lg-0`
+                ]]
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        <h1>[[*longtitle:default=`[[*pagetitle]]`]]</h1>
+        [[*content]]
+        <a href="[[++manager_url]]" title="Your MODX manager" class="btn btn-primary">Go to the manager</a>
+    </main>
+
+[[!pdoPage?
+    &parents=`0`
+    &resources=`[[!getResourcesGroup? &groupName=`mygroup`]]`
+    &tpl=`resourceRowTpl`
+    &limit=`3`
+    &pageNavVar=`page.nav`
+    &pageVarKey=`page`
+    &totalVar=`total`
+    &includeTVs=`myimage,priceCurrent`
+    &tvPrefix=``
+]]
+
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        [[!+page.nav]]
+    </ul>
+</nav> 
+
+<div style="margin: 0 auto; text-align:center"><a class="btn" href="/">на главную</a> </div>
+ 
+
+
+
+ 
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
